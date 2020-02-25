@@ -1,0 +1,156 @@
+   <!--Footer-->
+   <section id="bg3">
+        <div   class="container service3" >
+            <div class="row tekst p-auto">
+                <div class="col-6 col-md-3 col-lg-3">
+                    <h5>Eryk</h5>
+                    <p>lorem Ipsum donor sit.</p>
+                </div>
+                <div class="col-6 col-md-3 col-lg-3">
+                    <h5>Phone No.</h5>
+                    <p>7123123125</p>
+                </div>
+                <div class="col-6 col-md-3 col-lg-3">
+                    <h5>Email</h5>
+                    <p>sample@email.com</p>
+                </div>
+                <div class="col-6 col-md-3 col-lg-3">
+                    <h5>Address</h5>
+                    
+                    <p>123 lorem ipsum New York, USA.</p>
+                </div>
+            </div>
+            
+        </div>
+   </section>
+   
+   
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.0/jquery.waypoints.js"></script>
+    <script src="../script/jquery.counterup.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+   <script src="../script/simpleLightbox.js"></script>
+   <script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
+    
+   
+   <script>
+    $(function (){
+        $('.imageGallery1 a').simpleLightbox();
+    })
+   </script>
+  
+
+ 
+    <script>
+        $(function (){
+             $("button").attr("disabled", true);
+                 $("button").children('span').removeClass("navbar-toggler-icon");
+            $(document).scroll(function(){
+               
+                var $nav = $(".navbar");
+                $nav.toggleClass("scrolled", $(this).scrollTop() > 300);
+                var $link = $(".links");
+                $link.toggleClass("links2", $(this).scrollTop() > 300);
+                var $navbrand = $(".navbar-brand");
+                $navbrand.toggleClass("navbar-brand2", $(this).scrollTop() > 300);
+                
+                if($(this).scrollTop() < 300){
+                    $("button").attr("disabled", true);
+                    $("div").removeClass("show");
+                    $("button").children('span').removeClass("navbar-toggler-icon");
+                } else {
+                     $("button").attr("disabled", false);
+                     $("button").children('span').addClass("navbar-toggler-icon");
+                }
+            
+                $('a').removeClass('active');
+            })
+        })
+    </script>
+    
+
+    
+     <script>
+     $(document).ready(function(){
+  // $sections incleudes all of the container divs that relate to menu items.
+  var $sections = $('.container');
+  
+  // The user scrolls
+  $(window).scroll(function(){
+    
+    // currentScroll is the number of pixels the window has been scrolled
+    var currentScroll = $(this).scrollTop();
+    
+    // $currentSection is somewhere to place the section we must be looking at
+    var $currentSection
+    
+    // We check the position of each of the divs compared to the windows scroll positon
+    $sections.each(function(){
+      // divPosition is the position down the page in px of the current section we are testing      
+      var divPosition = $(this).offset().top;
+      
+      // If the divPosition is less the the currentScroll position the div we are testing has moved above the window edge.
+      // the -1 is so that it includes the div 1px before the div leave the top of the window.
+      if( divPosition - 1 < currentScroll ){
+        // We have either read the section or are currently reading the section so we'll call it our current section
+        $currentSection = $(this);
+        
+        // If the next div has also been read or we are currently reading it we will overwrite this value again. This will leave us with the LAST div that passed.
+      }
+      
+      // This is the bit of code that uses the currentSection as its source of ID
+      var id = $currentSection.attr('id');
+   	 $('a').removeClass('active');
+   	 $("[href*=\\#"+id+"]").addClass('active');
+   	 
+      
+    })
+
+  });
+});
+    </script>
+    
+   
+<script>
+    jQuery(document).ready(function($) {
+            $('.counter').counterUp({
+                delay: 10,
+                time: 1000
+            });
+        });
+</script>
+        
+        <script>
+            $(function(){
+                $('.autoplay').slick({
+                  slidesToShow: 3,
+                  slidesToScroll: 1,
+                  autoplay: true,
+                  autoplaySpeed: 200000,
+                  responsive: [
+                    {
+                      breakpoint: 1090,
+                      settings: {
+                        slidesToShow: 2,
+                         slidesToScroll: 1,
+                        autoplay: true,
+                         autoplaySpeed: 2000,
+                      }
+                    },
+                    {
+                      breakpoint: 576,
+                      settings: {
+                         slidesToShow: 1,
+                         slidesToScroll: 1,
+                        autoplay: true,
+                         autoplaySpeed: 2000,
+                      }
+                    },
+                  ]
+                });
+            })
+        </script>
+
+    </body>
+</html>

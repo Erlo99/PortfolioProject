@@ -1,0 +1,18 @@
+
+<%- include("../partials/headerBlog") %>
+<div class="container ptta pd200 tekst">
+  
+
+<form action="/blog/<%= blog_id %>/comments/<%= comment._id %>?_method=PUT" method="POST">
+    <h1>Edycja komentarza</h1>
+  
+  <div class="form-group">
+    <label>description</label>
+    <input type="text" class="form-control"  name="comment[text]" value="<%= comment.text %>">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+</div>
+</body>
+</html>

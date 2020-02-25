@@ -1,0 +1,49 @@
+<%- include("../partials/headerBlog") %>
+
+<nav class="navbar  navbar-light bg-light fixed-top pd-tb navbar-expand">
+  <a class="navbar-brand navbar-brand2" href="/"><b>PORTFOLIO</b></a>
+    <div class="navbar-nav">
+      <a class="nav-item nav-link links2" href="/">Home </a>
+    </div>
+    <div class="navbar-nav ml-auto">
+      <% if(!currentUser){ %>
+        <a class="nav-item nav-link links2" href="/blog/login">LogIn</a>
+        <a class="nav-item nav-link links2" href="/blog/singup">Register</a>
+      <% }else { %>
+        <p class="loggedin" >Logged in as <%= currentUser.username %> </p>
+        <a class="nav-item nav-link links2" href="/blog/logout">Logout</a>
+      <% } %>
+    </div>
+  
+</nav>
+
+<div class="jumbotron jumboimg2 ">
+</div>
+
+<section class=" bg2">
+    <div class="container ptta pb">
+        <h5>Blog</h5>
+        <h2 class="imgsize">LATEST POSTS</h2>
+        <div class="row blogpad3">
+          <% blog.slice().reverse().forEach(function(post){ %>
+           
+              <div class="col-md-6 col-lg-4 bgwhite blogpad2">
+             
+                <div class="img-hover-zoom img-hover-zoom--brightness2 ">
+                  <a href="/blog/<%= post._id %>">
+                  <img src="<%= post.image %>" class="imgres" alt="...">
+                  </a>
+                </div>
+                <div class="mgblog">
+                  <h5><%= post.title %></h5>
+                  <p class=""><%= post.desc.substring(0,200) %>...</p>
+                </div>
+                  <a href="/blog/<%= post._id %>" class="btn float-left" type="button">Read more</a>
+    
+            </div>
+          <% }) %>
+        </div>
+     </div>
+</section>
+
+<%- include("../partials/footerBlog") %>
